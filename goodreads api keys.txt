@@ -1,0 +1,7 @@
+key: usESndB0luulSPXqxPsDA
+secret: QgxJhnUSKV0qE52y5XIbqcuvDzdFcl3gOL0gDPsQ
+
+
+set FLASK_APP=application.py
+set FLASK_DEBUG=1
+set DATABASE_URL=postgres://cxxqeahdvxjssq:bc2bd0c4f60114fd6a692b653803a1e24cff5c0c043078328cd6b53c53320551@ec2-46-137-79-235.eu-west-1.compute.amazonaws.com:5432/d3j9mbre3dsrm2

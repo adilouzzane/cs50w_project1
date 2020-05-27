@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Book details</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="text-right">
+            <form action="{{ url_for('logout') }}" method="POST">
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
+        </div>
+        <div>
+            Title : {{ book.isbn }}
+        </div>
+        <div>
+            Author : {{ book.author }}
+        </div>
+        <div>
+            Publication year : {{ book.publication_year }}
+        </div>
+        <div>
+            ISBN : {{ book.isbn }}
+        </div>
+
+
+        <div>
+            is Submitted : {{ is_submitted }}
+        </div>
+
+
+        <div>
+            GoodRead Reviews :
+        </div>
+        <div>
+            Users Reviews :
+        </div>
+
+        <div id="submit_review">
+            Review Submission :
+            {% if is_submitted == true %}
+            <div> You already submitted</div>
+            {% else %}
+            <form action="{{ url_for('submit_review',book_id= book.id) }}" method="POST">
+                <div class="form-group">
+                    <label class="d-inline-block" for="rating">Rating:</label>
+                    <select class="form-control d-inline-block" name="rating" id="rating" style="width:auto;">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="3" name ="comment" id="comment"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Review</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+
+
+    </div>
+</body>
+
+</html>
